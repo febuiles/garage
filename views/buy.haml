@@ -1,0 +1,28 @@
+%link{:type => "text/css", :href => "/screen.css", :rel => "stylesheet" }
+
+%h1 Garaje de Heroína
+
+%p
+  =buying @item
+
+%p Acordate que todos los libros y DVDs valen <strong>$25.000</strong>.
+
+%p Para terminar, dame tus datos:
+
+%form{:method => "post", :action => "/buy"}
+  %input{:type => "hidden", :name => "id", :value => @item.id}
+
+  %label Nombre
+  %input{:type => "text", :name => "name"}
+
+  %br
+
+  %label Email
+  %input{:type => "text", :name => "email"}
+
+  %br
+
+  %input{:type => "submit", :value => "Comprar"}
+
+=link_to "Más items", "/"
+
