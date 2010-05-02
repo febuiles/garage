@@ -12,17 +12,15 @@
 %form{:method => "post", :action => "/buy"}
   %input{:type => "hidden", :name => "id", :value => @item.id}
 
-  %label Nombre
-  %input{:type => "text", :name => "name"}
+  %div
+    %label Nombre:
+    %input{:type => "text", :name => "name"}
 
-  %br
-
-  %label Email
-  %input{:type => "text", :name => "email"}
-
-  %br
+  %div
+    %label Email:
+    %input{:type => "text", :name => "email"}
 
   %input{:type => "submit", :value => "Comprar"}
 
-=link_to "Más items", "/"
+=link_to "Atrás", "/"
 
