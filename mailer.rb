@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'pony'
 
 def mail(name, to, book)
   configure :production do
