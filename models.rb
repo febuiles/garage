@@ -6,7 +6,7 @@ configure :development do
 end
 
 configure :production do
-  DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/data.db")
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/heroin')
 end
 
 
