@@ -14,9 +14,9 @@ def mail(name, to, book)
               :smtp => {
                 :address        => 'smtp.sendgrid.net',
                 :port           => '25',
+                :authentication => :plain,
                 :user_name      => ENV['SENDGRID_USERNAME'],
                 :password       => ENV['SENDGRID_PASSWORD'],
-                :authentication => :plain,
                 :domain         => ENV['SENDGRID_DOMAIN']
               })
   end
