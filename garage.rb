@@ -9,7 +9,7 @@ helpers do
   end
 
   def buy_item(item)
-    "<a href=\"/buy/#{item.id}\">Comprar</a>"
+    item.sold ? "" : "<a href=\"/buy/#{item.id}\">Comprar</a>"
   end
 
   def buying(item)
