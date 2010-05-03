@@ -5,6 +5,11 @@ configure :development do
   DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/data.db")
 end
 
+configure :production do
+  DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/data.db")
+end
+
+
 class Item
 
   CATEGORIES = ["Programación", "Literatura", "DVD"]
