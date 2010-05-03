@@ -4,21 +4,17 @@ require 'pony'
 def mail(name, to, book)
   configure :production do
     subject = "Vendiste #{book}"
-    body = "#{name} compró #{book}. Escribile a #{to}."
+    body = <<EOM
+From: Federico Builes <federico.builes@gmail.com>
+To: federico.builes@gmail.com
+Subject: #{subject}
 
-    Pony.mail(:to => "federico.builes@gmail.com",
-              :from => "federico.builes@gmail.com",
-              :subject => subject,
-              :body => body,
-              :via => :smtp,
-              :smtp => {
-                :address        => 'smtp.sendgrid.net',
-                :port           => '25',
-                :authentication => :plain,
-                :user_name      => ENV['SENDGRID_USERNAME'],
-                :password       => ENV['SENDGRID_PASSWORD'],
-                :domain         => ENV['SENDGRID_DOMAIN']
-              })
+#{name} compró #{book}. Escribile a #{to}."
+EOM
+
+    Net::SMTP.new('smtp.sendgrid.net', 25).start("heroku.com", "app177861@heroku.com", "3d1ec11226d2024220", "plain") do |smtp|
+      smtp.send_message body, 'federico.builes@gmail.com', ['federico.builes@gmail.com']
+    end
   end
 
   configure :development do
