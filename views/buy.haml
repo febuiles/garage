@@ -1,4 +1,6 @@
 %link{:type => "text/css", :href => "/screen.css", :rel => "stylesheet" }
+%script{:type => "text/javascript", :src => "/jquery.js" }
+%script{:type => "text/javascript", :src => "/application.js" }
 
 %h1 Garaje de Heroína
 
@@ -12,6 +14,9 @@
 %form{:method => "post", :action => "/buy"}
   %input{:type => "hidden", :name => "id", :value => @item.id}
 
+  #warning
+    %p Llena los dos campos por favor.
+
   %div
     %label Nombre:
     %input{:type => "text", :name => "name"}
@@ -20,7 +25,7 @@
     %label Email:
     %input{:type => "text", :name => "email"}
 
-  %input{:type => "submit", :value => "Comprar"}
+  %input{:type => "button", :value => "Comprar", :id => "buy"}
 
 =link_to "Atrás", "/"
 

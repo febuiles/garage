@@ -21,6 +21,11 @@ class Item
   def sold?
     sold ? "Si" : "No"
   end
+
+  def sell
+    self.sold = true
+    self.save
+  end
 end
 
 configure :development do

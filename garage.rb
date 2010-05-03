@@ -15,8 +15,12 @@ helpers do
     "<p>Vas a comprar <strong>#{item.title}</strong> de <strong>#{item.authors}</strong>."
   end
 
-  def styled_tr(item)
-    item.sold ? "<tr class=\"sold\">" : "<tr>"
+  def thanks_for_buying(item)
+    "<p>Gracias por comprar <strong>#{item.title}</strong>."
+  end
+
+  def valid_params?
+    !params[:name].empty? && !params[:email].empty?
   end
 end
 
@@ -34,4 +38,15 @@ end
 get "/buy/:id" do
   @item = Item.get(params[:id])
   haml :buy
+end
+
+post "/buy" do
+  name, email = params[:name], params[:email]
+  if valid_params?
+    @item = Item.get(params[:id])
+    @item.sell
+    haml :thanks
+  else
+    status 500
+  end
 end

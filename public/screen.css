@@ -16,3 +16,6 @@ a:hover { color: white; background-color: #FF3366; border-bottom: 1px dotted; te
 label { width: 65px; float: left;}
 
 input[type=text] { width: 200px; }
+
+#warning { display: none; }
+#warning p { color: red; }
