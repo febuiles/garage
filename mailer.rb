@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require 'net/smtp'
-# -*- coding: utf-8 -*-
 
 def mail(name, to, book)
   configure :production do
