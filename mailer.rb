@@ -11,7 +11,7 @@ def mail(name, to, book)
               :subject => subject,
               :body => body,
               :via => :smtp,
-              :via_options => {
+              :smtp => {
                 :address        => 'smtp.sendgrid.net',
                 :port           => '25',
                 :user_name      => ENV['SENDGRID_USERNAME'],
