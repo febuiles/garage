@@ -5,15 +5,15 @@ def mail(name, to, book)
   configure :production do
     subject = "Vendiste #{book}"
     body = <<EOM
-From: Federico Builes <federico.builes@gmail.com>
-To: federico.builes@gmail.com
+From: Federico Builes <federico@mheroin.com>
+To: federico@mheroin.com
 Subject: #{subject}
 
 #{name} compró #{book}. Escribile a #{to}.
 EOM
 
     Net::SMTP.new('smtp.sendgrid.net', 25).start("heroku.com", "app177861@heroku.com", "3d1ec11226d2024220", "plain") do |smtp|
-      smtp.send_message body, 'federico.builes@gmail.com', ['federico.builes@gmail.com']
+      smtp.send_message body, 'federico@mheroin.com', ['federico@mheroin.com']
     end
   end
 
