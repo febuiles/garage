@@ -9,7 +9,7 @@ From: Federico Builes <federico.builes@gmail.com>
 To: federico.builes@gmail.com
 Subject: #{subject}
 
-#{name} compró #{book}. Escribile a #{to}."
+#{name} compró #{book}. Escribile a #{to}.
 EOM
 
     Net::SMTP.new('smtp.sendgrid.net', 25).start("heroku.com", "app177861@heroku.com", "3d1ec11226d2024220", "plain") do |smtp|
