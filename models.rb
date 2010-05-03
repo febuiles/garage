@@ -22,7 +22,9 @@ class Item
     sold ? "Si" : "No"
   end
 
-  def sell
+  def sell(name, email)
+    self.buyer = name
+    self.buyer_email = email
     self.sold = true
     self.save
   end

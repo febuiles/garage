@@ -1,6 +1,7 @@
 require "sinatra"
-require "models"
 require "haml"
+require "models"
+require "mailer"
 
 helpers do
   def link_to(text, url)
@@ -41,10 +42,11 @@ get "/buy/:id" do
 end
 
 post "/buy" do
-  name, email = params[:name], params[:email]
   if valid_params?
+    name, email = params[:name], params[:email]
     @item = Item.get(params[:id])
-    @item.sell
+    @item.sell(name, email)
+    mail(name, email, @item.title)
     haml :thanks
   else
     status 500
