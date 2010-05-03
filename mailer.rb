@@ -10,7 +10,8 @@ def mail(name, to, book)
               :from => "federico.builes@gmail.com",
               :subject => subject,
               :body => body,
-              :via => :smtp, :via_options => {
+              :via => :smtp,
+              :via_options => {
                 :address        => 'smtp.sendgrid.net',
                 :port           => '25',
                 :user_name      => ENV['SENDGRID_USERNAME'],
