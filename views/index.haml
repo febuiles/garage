@@ -2,7 +2,7 @@
 
 %h1 Garaje de Heroína
 
-%p
+%p.sweet-justice
   El lanzamiento de
   =link_to("mheroin.com", "http://mheroin.com")
   necesita plata para contratar un diseñador, mandar a hacer stickers y otras guevonadas. Estoy vendiendo algunos libros y DVDs para ayudarme a cubrir costos así que se le agradece cualquier ayudita mono.
@@ -25,6 +25,10 @@
       %td=item.category
       %td=buy_item(item)
 
-%p
+%p.sweet-justice
   Pregunte por lo que no vea. Si tengo algo que querés (incluye mi cuerpo, mascotas, personajes en WoW, etc.) y no está aquí, podés escribirme a
   =link_to("federico.builes@gmail.com.", "mailto:federico.builes@gmail.com")
+
+%script{:type => "text/javascript", :src => "/jquery.js" }
+%script{:type => "text/javascript", :src => "/sweet-justice.min.js" }
+
