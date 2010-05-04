@@ -37,8 +37,8 @@ get "/" do
 end
 
 get "/buy/:id" do
-  status 404 if @item.sold
   @item = Item.get(params[:id])
+  status 404 if @item.sold
   haml :buy
 end
 
